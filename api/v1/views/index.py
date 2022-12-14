@@ -14,7 +14,7 @@ from models.user import User
 @app_views.route('/status', methods=['GET'])
 def status():
     """Returns the status of /status route"""
-    return (jsonify({'status': 'ok'}))
+    return (jsonify({'status': 'OK'}))
 
 
 @app_views.route('/stats')
