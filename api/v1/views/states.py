@@ -6,7 +6,9 @@ from models import storage
 from models.state import State
 
 
-@app_views.route('/states', strict_slashes=False, methods=['GET'])
+
+@app_views.route('/states', strict_slashes=False, methods=['GET'], 
+                    defaults={"state_id": None})
 @app_views.route('/states/<state_id>', methods=['GET'])
 def get_states(state_id):
     """Retrieves the list of all State objects
@@ -29,6 +31,7 @@ def delete_states(state_id):
     storage.save()
     return make_response(jsonify({}), 200)
 
+
 @app_views.route("/states", strict_slashes=False, methods=["POST"])
 def post_state():
     """POST /state API route"""
@@ -40,6 +43,7 @@ def post_state():
     s = State(**data)
     s.save()
     return make_response(jsonify(s.to_dict()), 201)
+
 
 @app_views.route("/states/<state_id>", methods=["PUT"])
 def put_state(state_id):
