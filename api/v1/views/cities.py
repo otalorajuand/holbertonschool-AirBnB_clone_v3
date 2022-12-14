@@ -18,7 +18,7 @@ def get_state_cities(state_id):
 
 
 @app_views.route('/cities/<city_id>', methods=['GET'])
-def get_cities(state_id, city_id):
+def get_cities(city_id):
     """Retrieves a City object"""
     city = storage.get(City, city_id)
     if not city:
@@ -68,6 +68,6 @@ def put_city(city_id):
         return make_response(jsonify({"error": "Not a JSON"}), 400)
     for key, value in data.items():
         if key not in ["id", "created_at", "updated_at"]:
-            setattr(state, key, value)
+            setattr(city, key, value)
     city.save()
     return make_response(jsonify(city.to_dict()), 200)
