@@ -39,7 +39,7 @@ def delete_city(city_id):
 
 @app_views.route("states/<state_id>/cities",
                  strict_slashes=False, methods=["POST"])
-def post_city():
+def post_city(state_id):
     """POST /state API route"""
     state = storage.get(State, state_id)
     if not state:
