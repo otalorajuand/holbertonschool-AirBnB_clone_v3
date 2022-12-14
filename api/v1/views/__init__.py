@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""Module for Blueprint app_views"""
 from flask import Blueprint
 from api.v1.views.index import *
 
