@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-This module contains a flask app
-"""
+"""This module contains a flask app"""
 from models import storage
 from api.v1.views import app_views
 import os
