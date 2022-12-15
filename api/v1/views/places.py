@@ -12,7 +12,7 @@ from models.user import User
                  strict_slashes=False, methods=['GET'])
 def get_cities_places(city_id):
     """Retrieves the list of all Place objects of a City"""
-    city = storage.get(city, city_id)
+    city = storage.get(City, city_id)
     if not city:
         return make_response(jsonify({"error": "Not found"}), 404)
     return jsonify([place.to_dict() for place in city.places])
