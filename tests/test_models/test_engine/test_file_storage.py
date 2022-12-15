@@ -14,6 +14,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
+from models import storage
 import json
 import os
 import pep8
@@ -77,6 +78,12 @@ class TestFileStorage(unittest.TestCase):
         new_dict = storage.all()
         self.assertEqual(type(new_dict), dict)
         self.assertIs(new_dict, storage._FileStorage__objects)
+
+    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    def test_get(self):
+        """"""
+        obj = storage.get(City,None)
+        self.assertEqual(obj,None)
 
     @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
     def test_new(self):
