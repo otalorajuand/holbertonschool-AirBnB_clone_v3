@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for review endpoints"""
+"""Module for amenity endpoints"""
 from flask import jsonify, make_response, request
 from api.v1.views import app_views
 from models import storage
